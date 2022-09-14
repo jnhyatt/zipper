@@ -1,9 +1,7 @@
-![Zipper](https://github.com/sebastiandev/zipper/blob/master/logo.png)
+:warning: **This project and particularly this master branch is no longer maintained. The new repo is:**
+https://github.com/Lecrapouille/zipper based on https://github.com/sebastiandev/zipper/tree/v2.x.y
 
-|Branch     | **`Linux/Mac OS`** | **`Windows`** |
-|-----------|------------------|-------------|
-|master     |[![Build Status](https://travis-ci.org/sebastiandev/zipper.svg?branch=master)](https://travis-ci.org/sebastiandev/zipper)|[![Build status](https://ci.appveyor.com/api/projects/status/github/sebastiandev/zipper?branch=master)](https://ci.appveyor.com/api/projects/status/github/sebastiandev/zipper)|
-|development|[![Build Status](https://travis-ci.org/sebastiandev/zipper.svg?branch=develop)](https://travis-ci.org/sebastiandev/zipper)|[![Build status](https://ci.appveyor.com/api/projects/status/github/sebastiandev/zipper?branch=develop)](https://ci.appveyor.com/api/projects/status/github/sebastiandev/zipper)|
+![Zipper](https://github.com/sebastiandev/zipper/blob/master/logo.png)
 
 C++ wrapper around minizip compression library
 
@@ -24,9 +22,9 @@ By flexibility I mean supporting all kinds of inputs and outputs, but specifical
 Zipper currently follows an unmaintaind and vulnerable version of the minizip library.
 It is vulnerable to ZipSlip attack and mitigations should be put in place by Zipper's users.
 
-> References: 
+> References:
 >
-> [ZipSlip](https://snyk.io/research/zip-slip-vulnerability), 
+> [ZipSlip](https://snyk.io/research/zip-slip-vulnerability),
 > [CVE-2014-9485](https://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-9485)
 
 ### Getting Started
@@ -67,6 +65,7 @@ Following the previous section `Compiling`, still from the `build` folder, type:
 
 ```shell
 sudo make install
+sudo ldconfig
 ```
 
 You will see a message like:
@@ -105,6 +104,8 @@ There are two classes available Zipper and Unzipper. They behave in the same man
 
 #### Zipping
 
+:warning: **This project and particularly this master branch is no longer maintained. The new repo is:**
+https://github.com/Lecrapouille/zipper based on https://github.com/sebastiandev/zipper/tree/v2.x.y
 - Header:
 
 ```c++
@@ -191,6 +192,9 @@ By default the constructor `Zipper` for zip file uses an implicit flag `Zipper::
 change it by `Zipper::Append`. Note: in previous versions of Zipper the `Zipper::Append` flag was the one by default but now replaced by `Zipper::Overwrite`.
 
 ##### Unzipping
+
+:warning: **This project and particularly this master branch is no longer maintained. The new repo is:**
+https://github.com/Lecrapouille/zipper based on https://github.com/sebastiandev/zipper/tree/v2.x.y
 
 - Header:
 
@@ -296,6 +300,19 @@ target_link_libraries(
     staticZipper
 )
 ```
+
+link zipper librairy(.so) to your own project with cmake
+```
+project(projZipper)
+
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(ZIPPER REQUIRED zipper)
+
+add_executable(projZipper main.cpp)
+
+target_link_libraries(projZipper ${ZIPPER_LIBRARIES})
+```
+
 
 ### For developpers
 
